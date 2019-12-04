@@ -1,7 +1,8 @@
-package Controller;
+package controller;
 
-import Logic.GameEngine;
-import Logic.Player;
+import logic.GameEngine;
+import logic.Player;
+import logic.RealPlayer;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -84,7 +85,7 @@ public class GameController {
     int startPosition = 0;
 
     @FXML
-    public void initialize(Player p1, Player p2, Player p3, Player p4){
+    public void initialize(RealPlayer p1, RealPlayer p2, RealPlayer p3, RealPlayer p4){
 
         Dices = new ToggleButton[5];
 
@@ -748,7 +749,7 @@ public class GameController {
         catch (IOException ioe) {
             ioe.printStackTrace();
         }
-        Player firstPlayer = mainGame.getCurrentPlayer();
+        RealPlayer firstRealPlayer = mainGame.getCurrentPlayer();
         for (int i = 1; i < 5; i++) {
         mainGame.nextPlayer();
             if (mainGame.getCurrentPlayerNumber() == 1) {

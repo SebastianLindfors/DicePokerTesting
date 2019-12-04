@@ -1,6 +1,6 @@
-package Controller;
+package controller;
 
-import Logic.Player;
+import logic.RealPlayer;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +17,7 @@ import java.io.IOException;
 
 public class RegisterPlayersController {
 
-    Player player1, player2, player3, player4;
+    RealPlayer realPlayer1, realPlayer2, realPlayer3, realPlayer4;
 
     int check = 0, min_player = 2;
 
@@ -193,39 +193,39 @@ public class RegisterPlayersController {
 
                 if(p1_check.isSelected()){
                     if(name_pc_human1.getText().equals("CPU1")) {
-                        player1 = new Player(name_pc_human1.getText(), 100, false);
+                        realPlayer1 = new RealPlayer(name_pc_human1.getText(), 100, false);
                     } else {
-                        player1 = new Player(name_pc_human1.getText(), 100, true);
+                        realPlayer1 = new RealPlayer(name_pc_human1.getText(), 100, true);
                     }
                 }
 
                 if(p2_check.isSelected()) {
                     if (name_pc_human2.getText().equals("CPU2")) {
-                        player2 = new Player(name_pc_human2.getText(), 100, false);
+                        realPlayer2 = new RealPlayer(name_pc_human2.getText(), 100, false);
                     } else {
-                        player2 = new Player(name_pc_human2.getText(), 100, true);
+                        realPlayer2 = new RealPlayer(name_pc_human2.getText(), 100, true);
                     }
                 }
 
                 if(p3_check.isSelected()) {
                     if (name_pc_human3.getText().equals("CPU3")) {
-                        player3 = new Player(name_pc_human3.getText(), 100, false);
+                        realPlayer3 = new RealPlayer(name_pc_human3.getText(), 100, false);
                         //System.out.println(name_pc_human3.getText());
                     } else {
-                        player3 = new Player(name_pc_human3.getText(), 100, true);
+                        realPlayer3 = new RealPlayer(name_pc_human3.getText(), 100, true);
                     }
                 }
 
                 if(p4_check.isSelected()) {
                     if (name_pc_human4.getText().equals("CPU4")) {
-                        player4 = new Player(name_pc_human4.getText(), 100, false);
+                        realPlayer4 = new RealPlayer(name_pc_human4.getText(), 100, false);
                     } else {
-                        player4 = new Player(name_pc_human4.getText(), 100, true);
+                        realPlayer4 = new RealPlayer(name_pc_human4.getText(), 100, true);
                     }
                 }
 
                 GameController gameController = fxmlLoader.getController();
-                gameController.initialize(player1, player2, player3, player4);
+                gameController.initialize(realPlayer1, realPlayer2, realPlayer3, realPlayer4);
 
             } catch (IOException e) {
                 System.out.println("Could not load the page");

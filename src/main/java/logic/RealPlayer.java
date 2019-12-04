@@ -1,8 +1,8 @@
-package Logic;
+package logic;
 
 import java.util.ArrayList;
 
-public class Player {
+public class RealPlayer implements Player {
     private String name;
     private int marker;
     private ArrayList<Die> dice = new ArrayList();
@@ -10,7 +10,7 @@ public class Player {
     boolean isHuman;
 
 
-    public Player(String name, int marker, boolean isHuman) {
+    public RealPlayer(String name, int marker, boolean isHuman) {
         this.name = name;
         this.marker = marker;
         this.isHuman = isHuman;
@@ -30,6 +30,7 @@ public class Player {
     }
 
     //Rolls the dice if the dice value is true
+    @Override
     public void rollSomeDie(boolean die_1, boolean die_2, boolean die_3, boolean die_4, boolean die_5){
             if(die_1) {
                 die1.roll();
@@ -49,8 +50,10 @@ public class Player {
 
     }
 
+    @Override
     public boolean isHuman() { return isHuman; }
 
+    @Override
     public void rollAllDice() {
         die1.roll();
         die2.roll();
@@ -60,22 +63,27 @@ public class Player {
 
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public void setName(String name) {
         this.name = name;
     }
 
+    @Override
     public int getMarker() {
         return marker;
     }
 
+    @Override
     public void setMarker(int marker) {
         this.marker = marker;
     }
 
+    @Override
     public boolean payMarkerToPot(int payment) {
 
         if (this.marker - payment > 0) {
@@ -88,10 +96,12 @@ public class Player {
 
     }
 
+    @Override
     public ArrayList<Die> getDice() {
         return dice;
     }
 
+    @Override
     public int[] getDieValues() {
 
         int[] output = new int[5];
@@ -103,12 +113,14 @@ public class Player {
         return output;
     }
 
+    @Override
     public void payMarkerFromPot(int pot) {
 
         this.marker += pot;
 
     }
 
+    @Override
     public String toStorageString() {
 
         StringBuilder storageString = new StringBuilder();

@@ -1,13 +1,10 @@
-package Logic;
+package logic;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Arrays;
+import java.util.*;
 
 public class GameEngine {
 
@@ -37,10 +34,10 @@ public class GameEngine {
     int[] playerBets = {0, 0, 0, 0};  //This array stores the total bet for all players in a round.
     int largestBetPlayerNumber = 1; //This variable keeps track of which player currently has made the largest bet.
 
-    public GameEngine(ArrayList<Player> listOfPlayers) {
+    public GameEngine(List<Player> listOfRealPlayers) {
 
         int playerNumbers = 1;
-        for (Player player : listOfPlayers) {
+        for (Player player : listOfRealPlayers) {
             if (player == null) {
                 playerNumbers++;
                 continue;
@@ -319,12 +316,8 @@ public class GameEngine {
         }
     }
 
-    public ArrayList<Integer> getPlayerOrder() {
-        return this.masterPlayerOrder;
-    }
-
-   public Player getCurrentPlayer() {
-        return playerByNumber.get(roundPlayerOrder.get(currentPlayerPointer));
+   public RealPlayer getCurrentPlayer() {
+        return (RealPlayer) playerByNumber.get(roundPlayerOrder.get(currentPlayerPointer));
    }
 
     /**
@@ -347,8 +340,8 @@ public class GameEngine {
        return playerByNumber.get(roundPlayerOrder.get(currentPlayerPointer)).getDieValues();
    }
 
-   public Player getPlayer(int playerNumber) {
-        return playerByNumber.get(playerNumber);
+   public RealPlayer getPlayer(int playerNumber) {
+        return (RealPlayer) playerByNumber.get(playerNumber);
    }
 
    public int getCurrentPot() {return currentPot;}
@@ -572,7 +565,7 @@ public class GameEngine {
             if (firstSplit.length > 1) {
                 System.out.println("moo");
                 String[] secondSplit = firstSplit[1].split("\t");
-                playerByNumber.put(Integer.parseInt(firstSplit[0].strip()), new Player(secondSplit[0], Integer.parseInt(secondSplit[1]), Boolean.parseBoolean(secondSplit[2])));
+                playerByNumber.put(Integer.parseInt(firstSplit[0].strip()), new RealPlayer(secondSplit[0], Integer.parseInt(secondSplit[1]), Boolean.parseBoolean(secondSplit[2])));
                 lop.add(Integer.parseInt(firstSplit[0].strip()));
                 String[] thirdSplit = secondSplit[3].split(" ");
                 if (thirdSplit[5].equals("true")) {

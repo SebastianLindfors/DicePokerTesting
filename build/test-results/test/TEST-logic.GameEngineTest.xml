@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="logic.GameEngineTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2019-12-04T14:45:50" hostname="Heidis-MacBook-Pro.local" time="0.101">
+  <properties/>
+  <testcase name="determineHandStrengthTestFullHouse()" classname="logic.GameEngineTest" time="0.038"/>
+  <testcase name="compareHandStrengthTestExpectFalse()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="determineHandStrengthTestNada()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="determineHandStrengthTest2ofKind()" classname="logic.GameEngineTest" time="0.002"/>
+  <testcase name="sortHandStrengthTieTest()" classname="logic.GameEngineTest" time="0.002"/>
+  <testcase name="currentPlayerAnteFalseTest()" classname="logic.GameEngineTest" time="0.008"/>
+  <testcase name="sortHandStrengthTest()" classname="logic.GameEngineTest" time="0.002"/>
+  <testcase name="compareHandStrengthTestExpectTrue()" classname="logic.GameEngineTest" time="0.004"/>
+  <testcase name="determineHandStrengthTest2Pair()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="determineHandStrengthPairTest()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="determineHandStrengthTest4ofKind()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="currentPlayerAnteTrueTest()" classname="logic.GameEngineTest" time="0.002"/>
+  <testcase name="compareHandStrengthTestTieExpectFalse()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="determineHandStrengthTestStraight()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="determineHandStrengthTest5ofKind()" classname="logic.GameEngineTest" time="0.003"/>
+  <testcase name="getPlayerTest()" classname="logic.GameEngineTest" time="0.011"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
