@@ -1,22 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="logic.GameEngineTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2019-12-04T14:45:50" hostname="Heidis-MacBook-Pro.local" time="0.101">
+<testsuite name="logic.GameEngineTest" tests="31" skipped="0" failures="0" errors="0" timestamp="2019-12-06T23:07:39" hostname="DESKTOP-UF6QME7" time="0.052">
   <properties/>
-  <testcase name="determineHandStrengthTestFullHouse()" classname="logic.GameEngineTest" time="0.038"/>
+  <testcase name="determineHandStrengthTestFullHouse()" classname="logic.GameEngineTest" time="0.022"/>
+  <testcase name="nextPlayerTest_expects1()" classname="logic.GameEngineTest" time="0.003"/>
+  <testcase name="nextPlayerTest_expects2()" classname="logic.GameEngineTest" time="0.0"/>
   <testcase name="compareHandStrengthTestExpectFalse()" classname="logic.GameEngineTest" time="0.001"/>
-  <testcase name="determineHandStrengthTestNada()" classname="logic.GameEngineTest" time="0.001"/>
-  <testcase name="determineHandStrengthTest2ofKind()" classname="logic.GameEngineTest" time="0.002"/>
-  <testcase name="sortHandStrengthTieTest()" classname="logic.GameEngineTest" time="0.002"/>
-  <testcase name="currentPlayerAnteFalseTest()" classname="logic.GameEngineTest" time="0.008"/>
-  <testcase name="sortHandStrengthTest()" classname="logic.GameEngineTest" time="0.002"/>
-  <testcase name="compareHandStrengthTestExpectTrue()" classname="logic.GameEngineTest" time="0.004"/>
+  <testcase name="determineHandStrengthTestNada()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="determineHandStrengthTest2ofKind()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="sortHandStrengthTieTest()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="getPlayerTest_expect2()" classname="logic.GameEngineTest" time="0.005"/>
+  <testcase name="getCurrentPlayerBetTest_expects0()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="isCurrentPlayerFirstPlayerTest_expectsFalse()" classname="logic.GameEngineTest" time="0.002"/>
+  <testcase name="roundWinnerTest_expectsListOfSingle2()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="currentPlayerAnteFalseTest()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="sortHandStrengthTest()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="compareHandStrengthTestExpectTrue()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="GameEngineConstructorHandlesAPlayerBeingNull()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="getCurrentRoundTest_expects1()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="roundWinnerTieTest_expectsListOf1and2()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="rollCurrentPlayerTest_expectArrayOf5Ones()" classname="logic.GameEngineTest" time="0.0"/>
   <testcase name="determineHandStrengthTest2Pair()" classname="logic.GameEngineTest" time="0.001"/>
-  <testcase name="determineHandStrengthPairTest()" classname="logic.GameEngineTest" time="0.001"/>
-  <testcase name="determineHandStrengthTest4ofKind()" classname="logic.GameEngineTest" time="0.001"/>
-  <testcase name="currentPlayerAnteTrueTest()" classname="logic.GameEngineTest" time="0.002"/>
-  <testcase name="compareHandStrengthTestTieExpectFalse()" classname="logic.GameEngineTest" time="0.001"/>
-  <testcase name="determineHandStrengthTestStraight()" classname="logic.GameEngineTest" time="0.001"/>
-  <testcase name="determineHandStrengthTest5ofKind()" classname="logic.GameEngineTest" time="0.003"/>
-  <testcase name="getPlayerTest()" classname="logic.GameEngineTest" time="0.011"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="determineHandStrengthPairTest()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="isPlayerWinnerTest_expectsFalse()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="determineHandStrengthTest4ofKind()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="currentPlayerAnteTrueTest()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="compareHandStrengthTestTieExpectFalse()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="currentPlayerFoldTest()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="determineHandStrengthTestStraight()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="eliminateCurrentPlayerTest_expectsStringb()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="nextRoundTest_expectsRound5()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="determineHandStrengthTest5ofKind()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="isPlayerWinnerTest_expectsTrue()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="isCurrentPlayerFirstPlayerTest_expectsTrue()" classname="logic.GameEngineTest" time="0.0"/>
+  <system-out><![CDATA[CPP: 1 FPP: 0
+CPP: 0 FPP: 0
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

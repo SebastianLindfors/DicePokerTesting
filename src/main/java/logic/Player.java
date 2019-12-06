@@ -1,6 +1,7 @@
 package logic;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface Player {
     //Rolls the dice if the dice value is true
@@ -20,7 +21,7 @@ public interface Player {
 
     boolean payMarkerToPot(int payment);
 
-    ArrayList<Die> getDice();
+    List<Die> getDice();
 
     int[] getDieValues();
 

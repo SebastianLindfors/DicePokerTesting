@@ -1,6 +1,7 @@
 package logic;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FakePlayer implements Player {
 
@@ -48,8 +49,15 @@ public class FakePlayer implements Player {
     }
 
     @Override
-    public ArrayList<Die> getDice() {
-        return null;
+    public List<Die> getDice() {
+        Die d1 = new Die(1);
+        List<Die> output = new ArrayList<>();
+        output.add(d1);
+        output.add(d1);
+        output.add(d1);
+        output.add(d1);
+        output.add(d1);
+        return output;
     }
 
     @Override

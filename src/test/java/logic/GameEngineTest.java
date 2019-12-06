@@ -150,6 +150,18 @@ public class GameEngineTest {
     }
 
     @Test
+    public void GameEngineConstructorHandlesAPlayerBeingNull() {
+        List<Player> listOfFakePlayers = new ArrayList<>();
+        listOfFakePlayers.add(null);
+        listOfFakePlayers.add(new FakePlayer());
+        listOfFakePlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfFakePlayers);
+        Assertions.assertEquals(2,testEngine.getCurrentPlayerNumber());
+
+    }
+
+    @Test
     public void currentPlayerAnteTrueTest(){
 
         List<Player> listOfFakePlayers = new ArrayList<>();
@@ -178,7 +190,7 @@ public class GameEngineTest {
     }
 
     @Test
-    public void getPlayerTest(){
+    public void getPlayerTest_expect2(){
 
         List<Player> listOfPlayers = new ArrayList<>();
         listOfPlayers.add(new RealPlayer("a", 15, true));
@@ -191,6 +203,172 @@ public class GameEngineTest {
         Assertions.assertEquals("b", testEngine.getPlayer(2).getName());
 
     }
+
+    @Test
+    public void isPlayerWinnerTest_expectsTrue() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new RealPlayer("a", 15, true));
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+
+        Assertions.assertTrue(testEngine.isPlayerWinner());
+    }
+
+    @Test
+    public void isPlayerWinnerTest_expectsFalse() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new RealPlayer("a", 15, true));
+        listOfPlayers.add(new RealPlayer("b", 20, true));
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+
+        Assertions.assertFalse(testEngine.isPlayerWinner());
+    }
+
+    @Test
+    public void eliminateCurrentPlayerTest_expectsStringb() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new RealPlayer("a", 15, true));
+        listOfPlayers.add(new RealPlayer("b", 20, true));
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.eliminateCurrentPlayer();
+
+        Assertions.assertEquals("b",testEngine.getCurrentPlayer().getName());
+    }
+
+    @Test
+    public void roundWinnerTest_expectsListOfSingle2() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+
+        List<Integer> expected = new ArrayList<>();
+        expected.add(2);
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.eliminateCurrentPlayer();
+        Assertions.assertEquals(expected, testEngine.roundWinner());
+
+    }
+
+    @Test
+    public void roundWinnerTieTest_expectsListOf1and2() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+
+        List<Integer> expected = new ArrayList<>();
+        expected.add(1);
+        expected.add(2);
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        Assertions.assertEquals(expected, testEngine.roundWinner());
+
+    }
+
+    @Test
+    public void getCurrentPlayerBetTest_expects0() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        Assertions.assertEquals(0, testEngine.getCurrentPlayerBet());
+    }
+
+    @Test
+    public void rollCurrentPlayerTest_expectArrayOf5Ones() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        Assertions.assertArrayEquals(new int[] {1, 1, 1, 1, 1}, testEngine.rollCurrentPlayer());
+    }
+
+    @Test
+    public void getCurrentRoundTest_expects1() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        Assertions.assertEquals(1,testEngine.getCurrentRound());
+    }
+
+    @Test
+    public void nextRoundTest_expectsRound5() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        for (int i = 1; i < 5; i++) {
+            testEngine.newRound();
+        }
+        Assertions.assertEquals(5,testEngine.getCurrentRound());
+    }
+
+    @Test
+    public void nextPlayerTest_expects2() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.nextPlayer();
+        Assertions.assertEquals(2,testEngine.getCurrentPlayerNumber());
+    }
+
+    @Test
+    public void nextPlayerTest_expects1() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.nextPlayer();
+        testEngine.nextPlayer();
+        Assertions.assertEquals(1,testEngine.getCurrentPlayerNumber());
+    }
+
+    @Test
+    public void isCurrentPlayerFirstPlayerTest_expectsTrue() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+
+        Assertions.assertTrue(testEngine.isCurrentPlayerFirstPlayer());
+    }
+
+    @Test
+    public void isCurrentPlayerFirstPlayerTest_expectsFalse() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.nextPlayer();
+
+        Assertions.assertFalse(testEngine.isCurrentPlayerFirstPlayer());
+    }
+
+    @Test
+    public void currentPlayerFoldTest() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.nextPlayer();
+        testEngine.currentPlayerFold();
+
+        List<Integer> expected = new ArrayList<>();
+        expected.add(1);
+
+        Assertions.assertEquals(expected, testEngine.roundWinner());
+    }
+
+
 
 
 

@@ -26,7 +26,7 @@ public class GameEngine {
 
     int currentAnte;
     int currentPot;
-    int currentRound;
+    int currentRound = 1;
 
     int currentPlayerPointer = 0;
     int firstPlayerPointer = 0;
@@ -316,8 +316,8 @@ public class GameEngine {
         }
     }
 
-   public RealPlayer getCurrentPlayer() {
-        return (RealPlayer) playerByNumber.get(roundPlayerOrder.get(currentPlayerPointer));
+   public Player getCurrentPlayer() {
+        return playerByNumber.get(roundPlayerOrder.get(currentPlayerPointer));
    }
 
     /**
@@ -442,7 +442,6 @@ public class GameEngine {
     } //Tests if there is only one player left in the round
 
     public int getCurrentPlayerBet() {
-
         return playerBets[getCurrentPlayerNumber() - 1];
     }
 
@@ -451,7 +450,6 @@ public class GameEngine {
         if (largestBetPlayerNumber == -1) {
             return 0;
         }
-
         return playerBets[largestBetPlayerNumber - 1];
     }
 
@@ -491,10 +489,10 @@ public class GameEngine {
     }
 
     public void eliminateCurrentPlayer() {
-        System.out.println("Player " + getCurrentPlayerNumber() + " has been defeated");
+        //System.out.println("Player " + getCurrentPlayerNumber() + " has been defeated");
 
             if (firstPlayerPointer >= roundPlayerOrder.size() - 1) {
-                System.out.println("Boop");
+                //System.out.println("Boop");
                 firstPlayerPointer = 0;
             }
 
@@ -504,17 +502,21 @@ public class GameEngine {
         roundPlayerOrder.remove(currentPlayerPointer);
 
 
-        System.out.println("CPP: " + currentPlayerPointer + " RPOs: " + roundPlayerOrder.size());
+        //System.out.println("CPP: " + currentPlayerPointer + " RPOs: " + roundPlayerOrder.size());
         if (currentPlayerPointer == roundPlayerOrder.size()) {
-            System.out.println("Beep");
+            //System.out.println("Beep");
             currentPlayerPointer = 0;
         }
-        System.out.println("It is now player " + getCurrentPlayerNumber() + "s turn");
+        //System.out.println("It is now player " + getCurrentPlayerNumber() + "s turn");
     }
 
     public boolean isPlayerWinner() {
         if (gamePlayerOrder.size() == 1) return true;
         else return false;
+    }
+
+    public int getCurrentRound() {
+        return currentRound;
     }
 
     public String saveDataToFile(String fileName) throws IOException {
@@ -574,7 +576,7 @@ public class GameEngine {
                 if (thirdSplit[6].equals("true")) {
                     roundPlayerOrder.add(Integer.parseInt(firstSplit[0].strip()));
                 }
-                ArrayList<Die> playerDie = playerByNumber.get(Integer.parseInt(firstSplit[0].strip())).getDice();
+                ArrayList<Die> playerDie = (ArrayList<Die>) playerByNumber.get(Integer.parseInt(firstSplit[0].strip())).getDice();
                 for (int i = 0; i < 5; i++) {
                     playerDie.get(i).setCurrentFace(Integer.parseInt(thirdSplit[i]));
                 }

@@ -749,7 +749,7 @@ public class GameController {
         catch (IOException ioe) {
             ioe.printStackTrace();
         }
-        RealPlayer firstRealPlayer = mainGame.getCurrentPlayer();
+        Player firstRealPlayer = mainGame.getCurrentPlayer();
         for (int i = 1; i < 5; i++) {
         mainGame.nextPlayer();
             if (mainGame.getCurrentPlayerNumber() == 1) {
