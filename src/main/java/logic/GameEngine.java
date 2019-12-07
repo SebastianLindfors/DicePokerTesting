@@ -462,7 +462,6 @@ public class GameEngine {
     }
 
     public boolean isBettingDone() {
-
         return (getCurrentPlayerNumber() == largestBetPlayerNumber);
     } //tests if the current player is the one who leads the betting (which means the betting phase is done)
 

@@ -1,2 +1,12 @@
-CPP: 1 FPP: 0
- CPP: 0 FPP: 0
+5The player must bet more than the previous max bet!
+	LBPN: 1
+$The player cannot afford this bet!
+#Calling cost for this player is 5
+5The player must bet more than the previous max bet!
+$Calling cost for this player is 10
+CPP: 1 FPP: 0
+	LBPN: 2
+$Calling cost for this player is 10
+%	LBPN: 1
+1	LBPN: 1
+3CPP: 0 FPP: 0

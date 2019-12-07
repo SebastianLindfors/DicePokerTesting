@@ -368,12 +368,293 @@ public class GameEngineTest {
         Assertions.assertEquals(expected, testEngine.roundWinner());
     }
 
+    @Test
+    public void isCurrentPlayerLastTest_expectsTrue() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+
+        Assertions.assertTrue(testEngine.isCurrentPlayerLastPlayer());
+    }
+
+    @Test
+    public void isCurrentPlayerLastTest_expectsFalse() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+
+        Assertions.assertFalse(testEngine.isCurrentPlayerLastPlayer());
+    }
+
+    @Test
+    public void currentPlayerBetTest_expectsTrue() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.get(0).setMarker(15);
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+
+        Assertions.assertTrue(testEngine.currentPlayerBet(10));
+    }
+
+    @Test
+    public void currentPlayerBetTest_expectsFalse() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.get(0).setMarker(5);
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+
+        Assertions.assertFalse(testEngine.currentPlayerBet(10));
+    }
+
+    @Test
+    public void currentPlayerBetTest_bettingMoreThanPreviousPlayer_expectsTrue() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.get(0).setMarker(15);
+        listOfPlayers.get(1).setMarker(15);
+
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.currentPlayerBet(10);
+        testEngine.nextPlayer();
+
+        Assertions.assertTrue(testEngine.currentPlayerBet(12));
+    }
+
+    @Test
+    public void currentPlayerBetTest_bettingLessThanPreviousPlayer_expectsFalse() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.get(0).setMarker(15);
+        listOfPlayers.get(1).setMarker(15);
+
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.currentPlayerBet(10);
+        testEngine.nextPlayer();
+
+        Assertions.assertFalse(testEngine.currentPlayerBet(5));
+    }
+
+    @Test
+    public void currentPlayerCall_expects20() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.get(0).setMarker(15);
+        listOfPlayers.get(1).setMarker(15);
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.currentPlayerBet(10);
+        testEngine.nextPlayer();
+        testEngine.currentPlayerCall();
+
+        Assertions.assertEquals(20, testEngine.getCurrentPot());
+    }
+
+    @Test
+    public void getHighestBetTest_expects10() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.get(0).setMarker(15);
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.currentPlayerBet(10);
+
+        Assertions.assertEquals(10, testEngine.getHihgestBet());
+    }
+
+    @Test
+    public void getHighestBetTest_betThenRaise_expects15() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.get(0).setMarker(15);
+        listOfPlayers.get(1).setMarker(20);
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.currentPlayerBet(10);
+        testEngine.nextPlayer();
+        testEngine.currentPlayerBet(15);
+
+        Assertions.assertEquals(15, testEngine.getHihgestBet());
+    }
+
+    @Test
+    public void getHighestBetTest_betThenFailedBet_expects10() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.get(0).setMarker(15);
+        listOfPlayers.get(1).setMarker(20);
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.currentPlayerBet(10);
+        testEngine.nextPlayer();
+        testEngine.currentPlayerBet(5);
+
+        Assertions.assertEquals(10, testEngine.getHihgestBet());
+    }
+
+    @Test
+    public void getHighestBetTest_NoBet_expects0() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+
+        Assertions.assertEquals(0, testEngine.getHihgestBet());
+    }
+
+    @Test
+    public void getCurrentPlayerBet_expects10() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.get(0).setMarker(15);
+        listOfPlayers.get(1).setMarker(20);
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.currentPlayerBet(10);
+
+        Assertions.assertEquals(10, testEngine.getCurrentPlayerBet());
+    }
+
+    @Test
+    public void getCurrentPlayerBet_expects15() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.get(0).setMarker(15);
+        listOfPlayers.get(1).setMarker(20);
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.currentPlayerBet(10);
+        testEngine.nextPlayer();
+        testEngine.currentPlayerBet(15);
+
+        Assertions.assertEquals(15, testEngine.getCurrentPlayerBet());
+    }
+
+    @Test
+    public void getCurrentPlayerBet_newRound_expects10() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.get(0).setMarker(15);
+        listOfPlayers.get(1).setMarker(20);
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.currentPlayerBet(10);
+        testEngine.nextPlayer();
+        testEngine.currentPlayerBet(15);
+        testEngine.nextPlayer();
+
+        Assertions.assertEquals(10, testEngine.getCurrentPlayerBet());
+    }
+
+    @Test
+    public void getCurrentPlayerCallingCostTest_BetThenCall_expects10() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.get(0).setMarker(15);
+        listOfPlayers.get(1).setMarker(20);
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.currentPlayerBet(10);
+        testEngine.nextPlayer();
+
+        Assertions.assertEquals(10, testEngine.getCurrentPlayerCallingCost());
+
+    }
+
+    @Test
+    public void getCurrentPlayerCallingCostTest_BetThenRaiseThenCall_expects5() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.get(0).setMarker(15);
+        listOfPlayers.get(1).setMarker(20);
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.currentPlayerBet(10);
+        testEngine.nextPlayer();
+        testEngine.currentPlayerBet(15);
+        testEngine.nextPlayer();
+
+        Assertions.assertEquals(5, testEngine.getCurrentPlayerCallingCost());
+    }
+
+    @Test
+    public void isBEttingDoneTest_BetThenCall_expectsTrue() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.get(0).setMarker(15);
+        listOfPlayers.get(1).setMarker(20);
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.currentPlayerBet(10);
+        testEngine.nextPlayer();
+        testEngine.currentPlayerCall();
+        testEngine.nextPlayer();
+
+        Assertions.assertTrue(testEngine.isBettingDone());
+    }
+
+    @Test
+    public void isBettingDoneTest_BetThenRaise_expectsFalse() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.get(0).setMarker(15);
+        listOfPlayers.get(1).setMarker(20);
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.currentPlayerBet(10);
+        testEngine.nextPlayer();
+        testEngine.currentPlayerBet(15);
+        testEngine.nextPlayer();
+
+        Assertions.assertFalse(testEngine.isBettingDone());
+    }
+
+    @Test
+    public void isBettingDoneTest_BetThenRaiseThenCall_expectsTrue() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.get(0).setMarker(15);
+        listOfPlayers.get(1).setMarker(20);
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.currentPlayerBet(10);
+        testEngine.nextPlayer();
+        testEngine.currentPlayerBet(15);
+        testEngine.nextPlayer();
+        testEngine.currentPlayerCall();
+        testEngine.nextPlayer();
+
+        Assertions.assertTrue(testEngine.isBettingDone());
+    }
 
 
 
 
 
-private String handStrengthOutput(int[] expected, int [] actual) {
+
+
+
+
+    private String handStrengthOutput(int[] expected, int [] actual) {
         StringBuilder string1 = new StringBuilder();
         StringBuilder string2 = new StringBuilder();
         for (int i = 0; i < 5; i++) {
