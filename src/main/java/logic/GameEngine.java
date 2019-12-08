@@ -518,32 +518,35 @@ public class GameEngine {
         return currentRound;
     }
 
-    public String saveDataToFile(String fileName) throws IOException {
+    public void saveDataToFile(String saveString, String fileName) throws IOException {
 
         String filePath = "C:\\Users\\sebas\\Documents\\GitHub Projects\\OOP1-P2\\SaveGames\\";
 
         String fullFile = filePath + fileName + ".sav";
 
         PrintWriter outStream = new PrintWriter(fullFile);
-        for (int number : playerByNumber.keySet()) {
-            outStream.println( number + " : " + playerByNumber.get(number).toStorageString() + (gamePlayerOrder.contains(number)) + " " +  roundPlayerOrder.contains(number));
-        }
-        outStream.println(currentPlayerPointer +"\t" + firstPlayerPointer + "\t" + currentPot + "\t"
-                + currentAnte + "\t" + currentRound + "\t" + largestBetPlayerNumber);
-        for (int i = 0; i < 4; i++) {
-            outStream.print(playerBets[i] + " ");
-        }
-
-        outStream.close();
-
-
-
-        System.out.println(fullFile);
-        return fullFile;
+        outStream.println(saveString);
 
     }
 
-    public void loadDataFromFile(String fileName) throws IOException {
+    public String createStorageString() {
+
+        StringBuilder outputBuilder = new StringBuilder();
+
+        for (int number : playerByNumber.keySet()) {
+            outputBuilder.append( number + " : " + playerByNumber.get(number).toStorageString() + (gamePlayerOrder.contains(number)) + " " +  roundPlayerOrder.contains(number) + "\n");
+        }
+        outputBuilder.append(currentPlayerPointer +"\t" + firstPlayerPointer + "\t" + currentPot + "\t"
+                + currentAnte + "\t" + currentRound + "\t" + largestBetPlayerNumber + "\n");
+        for (int i = 0; i < 4; i++) {
+            outputBuilder.append(playerBets[i] + " ");
+        }
+
+        return outputBuilder.toString();
+
+    }
+
+    public String loadDataFromFile(String fileName) throws IOException {
 
         String filePath = "C:\\Users\\sebas\\Documents\\GitHub Projects\\OOP1-P2\\SaveGames\\";
 
@@ -552,53 +555,68 @@ public class GameEngine {
         BufferedReader inputReader = new BufferedReader(new FileReader(fullFile));
 
         String line;
-        boolean playerLine = true;
-
-        int playerNumber = 1;
-        this.roundPlayerOrder = new ArrayList<>();
-        this.gamePlayerOrder = new ArrayList<>();
-
-        ArrayList<Integer> lop = new ArrayList<>();
-        ArrayList<String> data = new ArrayList<>();
+        StringBuilder outputBuilder = new StringBuilder();
         while ((line = inputReader.readLine()) != null) {
-            String[] firstSplit = line.split(":");
-            System.out.println(firstSplit[0]);
-            if (firstSplit.length > 1) {
-                System.out.println("moo");
-                String[] secondSplit = firstSplit[1].split("\t");
-                playerByNumber.put(Integer.parseInt(firstSplit[0].strip()), new RealPlayer(secondSplit[0], Integer.parseInt(secondSplit[1]), Boolean.parseBoolean(secondSplit[2])));
-                lop.add(Integer.parseInt(firstSplit[0].strip()));
-                String[] thirdSplit = secondSplit[3].split(" ");
-                if (thirdSplit[5].equals("true")) {
-                    gamePlayerOrder.add(Integer.parseInt(firstSplit[0].strip()));
-                }
-                if (thirdSplit[6].equals("true")) {
-                    roundPlayerOrder.add(Integer.parseInt(firstSplit[0].strip()));
-                }
-                ArrayList<Die> playerDie = (ArrayList<Die>) playerByNumber.get(Integer.parseInt(firstSplit[0].strip())).getDice();
-                for (int i = 0; i < 5; i++) {
-                    playerDie.get(i).setCurrentFace(Integer.parseInt(thirdSplit[i]));
-                }
-            }
-            else {
-                System.out.println("Mee");
-                for (String s : line.split("\t| ")) {
-                    data.add(s);
-                }
-            }
+            outputBuilder.append(line);
         }
-        currentPlayerPointer = Integer.valueOf(data.get(0));
-        firstPlayerPointer = Integer.valueOf(data.get(1));
-        currentPot = Integer.valueOf(data.get(2));
-        currentAnte = Integer.valueOf(data.get(3));
-        currentRound = Integer.valueOf(data.get(4));
-        largestBetPlayerNumber = Integer.valueOf(data.get(5));
-        playerBets[0]  = Integer.valueOf(data.get(6));
-        playerBets[1]  = Integer.valueOf(data.get(7));
-        playerBets[2]  = Integer.valueOf(data.get(8));
-        playerBets[3]  = Integer.valueOf(data.get(9));
+        return outputBuilder.toString();
+    }
 
 
+        public void setStateFromStorageString (String storageString) {
+
+            this.roundPlayerOrder = new ArrayList<>();
+            this.gamePlayerOrder = new ArrayList<>();
+
+            ArrayList<Integer> lop = new ArrayList<>();
+            ArrayList<String> data = new ArrayList<>();
+
+            Scanner storageScanner = new Scanner(storageString);
+            String line;
+            while ((storageScanner.hasNextLine())) {
+                line = storageScanner.nextLine();
+
+                String[] firstSplit = line.split(":");
+                System.out.println(firstSplit[0]);
+                if (firstSplit.length > 1) {
+                    System.out.println("moo");
+                    String[] secondSplit = firstSplit[1].split("\t");
+                    playerByNumber.put(Integer.parseInt(firstSplit[0].strip()), new RealPlayer(secondSplit[0], Integer.parseInt(secondSplit[1]), Boolean.parseBoolean(secondSplit[2])));
+                    lop.add(Integer.parseInt(firstSplit[0].strip()));
+                    String[] thirdSplit = secondSplit[3].split(" ");
+                    if (thirdSplit[5].equals("true")) {
+                        gamePlayerOrder.add(Integer.parseInt(firstSplit[0].strip()));
+                    }
+                    if (thirdSplit[6].equals("true")) {
+                        roundPlayerOrder.add(Integer.parseInt(firstSplit[0].strip()));
+                    }
+                    ArrayList<Die> playerDie = (ArrayList<Die>) playerByNumber.get(Integer.parseInt(firstSplit[0].strip())).getDice();
+                    for (int i = 0; i < 5; i++) {
+                        playerDie.get(i).setCurrentFace(Integer.parseInt(thirdSplit[i]));
+                    }
+                }
+                else {
+                    System.out.println("Mee");
+                    for (String s : line.split("\t| ")) {
+                        data.add(s);
+                    }
+                }
+            }
+            currentPlayerPointer = Integer.valueOf(data.get(0));
+            firstPlayerPointer = Integer.valueOf(data.get(1));
+            currentPot = Integer.valueOf(data.get(2));
+            currentAnte = Integer.valueOf(data.get(3));
+            currentRound = Integer.valueOf(data.get(4));
+            largestBetPlayerNumber = Integer.valueOf(data.get(5));
+            playerBets[0]  = Integer.valueOf(data.get(6));
+            playerBets[1]  = Integer.valueOf(data.get(7));
+            playerBets[2]  = Integer.valueOf(data.get(8));
+            playerBets[3]  = Integer.valueOf(data.get(9));
+
         }
+
+
+
 }
+
 

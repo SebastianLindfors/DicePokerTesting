@@ -646,6 +646,43 @@ public class GameEngineTest {
         Assertions.assertTrue(testEngine.isBettingDone());
     }
 
+    @Test
+    public void createStorageStringTest() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.get(0).setMarker(15);
+        listOfPlayers.get(1).setMarker(20);
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        String expected =   "1 : This is a fake storage stringtrue true\n" +
+                            "2 : This is a fake storage stringtrue true\n" +
+                            "0\t0\t0\t10\t1\t1\n" +
+                            "0 0 0 0 ";
+
+        Assertions.assertEquals(expected, testEngine.createStorageString());
+    }
+
+    @Test
+    public void setStateFromStorageStringTest() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+
+        String storageStringInput = "1 : Player 1\t160\ttrue\t4 5 5 5 6 true true" + "\n" +
+                                    "2 : Player 2\t75\ttrue\t4 3 1 2 2 true true"  + "\n" +
+                                    "3 : Player 3\t90\ttrue\t4 5 1 1 6 true true"  + "\n" +
+                                    "4 : Player 4\t75\ttrue\t6 1 1 4 2 true true"  + "\n" +
+                                    "0\t1\t0\t100\t1\t1" + "\n" +
+                                    "10 20 30 40";
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        testEngine.setStateFromStorageString(storageStringInput);
+
+        Assertions.assertEquals(10, testEngine.getCurrentPlayerBet());
+
+
+    }
+
 
 
 

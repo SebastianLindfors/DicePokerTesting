@@ -72,6 +72,6 @@ public class FakePlayer implements Player {
 
     @Override
     public String toStorageString() {
-        return null;
+        return "This is a fake storage string";
     }
 }

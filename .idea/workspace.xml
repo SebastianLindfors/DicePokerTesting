@@ -13,6 +13,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Controller/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Logic/GameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Logic/GameEngine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/logic/FakePlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/logic/FakePlayer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/test/logic/GameEngineTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/logic/GameEngineTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/logic.GameEngineTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/logic.GameEngineTest.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
@@ -21,7 +24,9 @@
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/logic/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/GameEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/logic/FakePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/logic/FakePlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/logic/GameEngineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/logic/GameEngineTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,7 +40,7 @@
   </component>
   <component name="CoverageViewManager">
     <option name="myFlattenPackages" value="true" />
-    <option name="myElementSize" value="541" />
+    <option name="myElementSize" value="555" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -288,7 +293,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/DicePokerTesting$GameEngineTest.ic" NAME="GameEngineTest Coverage Results" MODIFIED="1575757190758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/DicePokerTesting$GameEngineTest.ic" NAME="GameEngineTest Coverage Results" MODIFIED="1575828962053" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>logic.*</FILTER>
       <FILTER>controller.*</FILTER>
     </SUITE>

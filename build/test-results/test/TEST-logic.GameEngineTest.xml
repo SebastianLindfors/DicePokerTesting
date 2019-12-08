@@ -1,62 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="logic.GameEngineTest" tests="50" skipped="0" failures="0" errors="0" timestamp="2019-12-07T22:19:51" hostname="DESKTOP-UF6QME7" time="0.07">
+<testsuite name="logic.GameEngineTest" tests="52" skipped="0" failures="0" errors="0" timestamp="2019-12-08T18:16:03" hostname="DESKTOP-UF6QME7" time="0.072">
   <properties/>
-  <testcase name="isCurrentPlayerLastTest_expectsTrue()" classname="logic.GameEngineTest" time="0.022"/>
+  <testcase name="isCurrentPlayerLastTest_expectsTrue()" classname="logic.GameEngineTest" time="0.02"/>
   <testcase name="getHighestBetTest_betThenFailedBet_expects10()" classname="logic.GameEngineTest" time="0.003"/>
   <testcase name="currentPlayerBetTest_expectsFalse()" classname="logic.GameEngineTest" time="0.001"/>
-  <testcase name="isBettingDoneTest_BetThenRaiseThenCall_expectsTrue()" classname="logic.GameEngineTest" time="0.0"/>
-  <testcase name="determineHandStrengthTestFullHouse()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="isBettingDoneTest_BetThenRaiseThenCall_expectsTrue()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="determineHandStrengthTestFullHouse()" classname="logic.GameEngineTest" time="0.002"/>
   <testcase name="currentPlayerBetTest_bettingLessThanPreviousPlayer_expectsFalse()" classname="logic.GameEngineTest" time="0.001"/>
   <testcase name="nextPlayerTest_expects1()" classname="logic.GameEngineTest" time="0.001"/>
-  <testcase name="nextPlayerTest_expects2()" classname="logic.GameEngineTest" time="0.0"/>
-  <testcase name="compareHandStrengthTestExpectFalse()" classname="logic.GameEngineTest" time="0.0"/>
-  <testcase name="determineHandStrengthTestNada()" classname="logic.GameEngineTest" time="0.0"/>
-  <testcase name="currentPlayerBetTest_bettingMoreThanPreviousPlayer_expectsTrue()" classname="logic.GameEngineTest" time="0.001"/>
-  <testcase name="determineHandStrengthTest2ofKind()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="nextPlayerTest_expects2()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="compareHandStrengthTestExpectFalse()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="determineHandStrengthTestNada()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="currentPlayerBetTest_bettingMoreThanPreviousPlayer_expectsTrue()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="determineHandStrengthTest2ofKind()" classname="logic.GameEngineTest" time="0.001"/>
   <testcase name="isBettingDoneTest_BetThenRaise_expectsFalse()" classname="logic.GameEngineTest" time="0.0"/>
-  <testcase name="sortHandStrengthTieTest()" classname="logic.GameEngineTest" time="0.001"/>
-  <testcase name="getPlayerTest_expect2()" classname="logic.GameEngineTest" time="0.005"/>
+  <testcase name="sortHandStrengthTieTest()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="getPlayerTest_expect2()" classname="logic.GameEngineTest" time="0.006"/>
   <testcase name="getCurrentPlayerBetTest_expects0()" classname="logic.GameEngineTest" time="0.0"/>
-  <testcase name="currentPlayerCall_expects20()" classname="logic.GameEngineTest" time="0.001"/>
-  <testcase name="getCurrentPlayerCallingCostTest_BetThenRaiseThenCall_expects5()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="currentPlayerCall_expects20()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="getCurrentPlayerCallingCostTest_BetThenRaiseThenCall_expects5()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="setStateFromStorageStringTest()" classname="logic.GameEngineTest" time="0.004"/>
   <testcase name="isCurrentPlayerFirstPlayerTest_expectsFalse()" classname="logic.GameEngineTest" time="0.0"/>
-  <testcase name="roundWinnerTest_expectsListOfSingle2()" classname="logic.GameEngineTest" time="0.001"/>
-  <testcase name="currentPlayerAnteFalseTest()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="roundWinnerTest_expectsListOfSingle2()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="currentPlayerAnteFalseTest()" classname="logic.GameEngineTest" time="0.001"/>
   <testcase name="sortHandStrengthTest()" classname="logic.GameEngineTest" time="0.0"/>
   <testcase name="getCurrentPlayerCallingCostTest_BetThenCall_expects10()" classname="logic.GameEngineTest" time="0.0"/>
-  <testcase name="getHighestBetTest_betThenRaise_expects15()" classname="logic.GameEngineTest" time="0.001"/>
-  <testcase name="compareHandStrengthTestExpectTrue()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="getHighestBetTest_betThenRaise_expects15()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="compareHandStrengthTestExpectTrue()" classname="logic.GameEngineTest" time="0.001"/>
   <testcase name="GameEngineConstructorHandlesAPlayerBeingNull()" classname="logic.GameEngineTest" time="0.0"/>
   <testcase name="getCurrentRoundTest_expects1()" classname="logic.GameEngineTest" time="0.0"/>
   <testcase name="roundWinnerTieTest_expectsListOf1and2()" classname="logic.GameEngineTest" time="0.001"/>
-  <testcase name="rollCurrentPlayerTest_expectArrayOf5Ones()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="rollCurrentPlayerTest_expectArrayOf5Ones()" classname="logic.GameEngineTest" time="0.0"/>
   <testcase name="isBEttingDoneTest_BetThenCall_expectsTrue()" classname="logic.GameEngineTest" time="0.001"/>
-  <testcase name="determineHandStrengthTest2Pair()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="determineHandStrengthTest2Pair()" classname="logic.GameEngineTest" time="0.0"/>
   <testcase name="determineHandStrengthPairTest()" classname="logic.GameEngineTest" time="0.001"/>
-  <testcase name="isPlayerWinnerTest_expectsFalse()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="isPlayerWinnerTest_expectsFalse()" classname="logic.GameEngineTest" time="0.0"/>
   <testcase name="currentPlayerBetTest_expectsTrue()" classname="logic.GameEngineTest" time="0.0"/>
-  <testcase name="determineHandStrengthTest4ofKind()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="determineHandStrengthTest4ofKind()" classname="logic.GameEngineTest" time="0.001"/>
   <testcase name="getHighestBetTest_NoBet_expects0()" classname="logic.GameEngineTest" time="0.0"/>
   <testcase name="currentPlayerAnteTrueTest()" classname="logic.GameEngineTest" time="0.0"/>
   <testcase name="compareHandStrengthTestTieExpectFalse()" classname="logic.GameEngineTest" time="0.0"/>
-  <testcase name="getCurrentPlayerBet_expects10()" classname="logic.GameEngineTest" time="0.001"/>
-  <testcase name="getCurrentPlayerBet_expects15()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="getCurrentPlayerBet_expects10()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="getCurrentPlayerBet_expects15()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="createStorageStringTest()" classname="logic.GameEngineTest" time="0.0"/>
   <testcase name="currentPlayerFoldTest()" classname="logic.GameEngineTest" time="0.0"/>
   <testcase name="determineHandStrengthTestStraight()" classname="logic.GameEngineTest" time="0.001"/>
   <testcase name="isCurrentPlayerLastTest_expectsFalse()" classname="logic.GameEngineTest" time="0.0"/>
-  <testcase name="eliminateCurrentPlayerTest_expectsStringb()" classname="logic.GameEngineTest" time="0.0"/>
+  <testcase name="eliminateCurrentPlayerTest_expectsStringb()" classname="logic.GameEngineTest" time="0.001"/>
   <testcase name="nextRoundTest_expectsRound5()" classname="logic.GameEngineTest" time="0.0"/>
   <testcase name="determineHandStrengthTest5ofKind()" classname="logic.GameEngineTest" time="0.0"/>
   <testcase name="isPlayerWinnerTest_expectsTrue()" classname="logic.GameEngineTest" time="0.0"/>
   <testcase name="getHighestBetTest_expects10()" classname="logic.GameEngineTest" time="0.001"/>
   <testcase name="getCurrentPlayerBet_newRound_expects10()" classname="logic.GameEngineTest" time="0.0"/>
-  <testcase name="isCurrentPlayerFirstPlayerTest_expectsTrue()" classname="logic.GameEngineTest" time="0.001"/>
+  <testcase name="isCurrentPlayerFirstPlayerTest_expectsTrue()" classname="logic.GameEngineTest" time="0.0"/>
   <system-out><![CDATA[The player must bet more than the previous max bet!
 LBPN: 1
 The player cannot afford this bet!
 Calling cost for this player is 5
 The player must bet more than the previous max bet!
 Calling cost for this player is 10
+1 
+moo
+2 
+moo
+3 
+moo
+4 
+moo
+0	1	0	100	1	1
+Mee
+10 20 30 40
+Mee
 CPP: 1 FPP: 0
 LBPN: 2
 Calling cost for this player is 10

@@ -363,7 +363,7 @@ public class GameController {
 
     public void save() {
         try {
-            mainGame.saveDataToFile("SaveFile");
+            mainGame.saveDataToFile(mainGame.createStorageString(),"SaveFile");
             System.exit(0);
         }
         catch (IOException ioe) {
