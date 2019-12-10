@@ -112,7 +112,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.GameEngineTest.getCurrentPlayerHandStrengthTest">
+  <component name="RunManager" selected="Gradle.GameEngineTest">
     <configuration name="GameEngineTest" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -288,7 +288,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/DicePokerTesting$GameEngineTest.ic" NAME="GameEngineTest Coverage Results" MODIFIED="1575979180664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/DicePokerTesting$GameEngineTest.ic" NAME="GameEngineTest Coverage Results" MODIFIED="1576018505976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>logic.*</FILTER>
       <FILTER>controller.*</FILTER>
     </SUITE>

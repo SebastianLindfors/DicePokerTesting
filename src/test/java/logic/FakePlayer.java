@@ -52,7 +52,7 @@ public class FakePlayer implements Player {
 
     @Override
     public void setName(String name) {
-
+        this.name = name;
     }
 
     @Override
