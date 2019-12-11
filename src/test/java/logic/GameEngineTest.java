@@ -3,7 +3,12 @@ package logic;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -773,6 +778,26 @@ public class GameEngineTest {
         Assertions.assertEquals(expected, testEngine.getListOfAllPlayers());
 
     }
+
+    @Test
+    public void saveDataToFileTest(@TempDir File tempFile) throws IOException {
+
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        String saveString = "Test";
+        testEngine.saveDataToFile(saveString, tempFile);
+
+        Assertions.assertLinesMatch(List.of(saveString), Files.readAllLines(tempFile.toPath()));
+
+
+
+
+
+
+    }
+
 
 
 

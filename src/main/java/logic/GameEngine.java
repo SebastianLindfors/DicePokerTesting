@@ -1,9 +1,6 @@
 package logic;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.*;
 
 public class GameEngine {
@@ -518,13 +515,9 @@ public class GameEngine {
         return currentRound;
     }
 
-    public void saveDataToFile(String saveString, String fileName) throws IOException {
+    public void saveDataToFile(String saveString, File fileName) throws IOException {
 
-        String filePath = "C:\\Users\\sebas\\Documents\\GitHub Projects\\OOP1-P2\\SaveGames\\";
-
-        String fullFile = filePath + fileName + ".sav";
-
-        PrintWriter outStream = new PrintWriter(fullFile);
+        PrintWriter outStream = new PrintWriter(fileName);
         outStream.println(saveString);
 
     }

@@ -6,12 +6,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Controller/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Logic/GameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Logic/GameEngine.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/test/logic/FakePlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/logic/FakePlayer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/test/logic/GameEngineTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/logic/GameEngineTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/logic.GameEngineTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/logic.GameEngineTest.html" afterDir="false" />
@@ -21,7 +24,8 @@
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/logic/FakePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/logic/FakePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logic/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/GameEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/logic/GameEngineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/logic/GameEngineTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -112,7 +116,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.GameEngineTest">
+  <component name="RunManager" selected="Gradle.GameEngineTest.saveDataToFileTest">
     <configuration name="GameEngineTest" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -149,26 +153,6 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;logic.GameEngineTest.currentPlayerAnteFalseTest&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="GameEngineTest.currentPlayerAnteTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;logic.GameEngineTest.currentPlayerAnteTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -243,21 +227,41 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="GameEngineTest.saveDataToFileTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;logic.GameEngineTest.saveDataToFileTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Gradle.GameEngineTest" />
-      <item itemvalue="Gradle.GameEngineTest.currentPlayerAnteTest" />
       <item itemvalue="Gradle.GameEngineTest.currentPlayerAnteFalseTest" />
       <item itemvalue="Gradle.GameEngineTest.getPlayerTest" />
       <item itemvalue="Gradle.GameEngineTest.rollCurrentPlayerTest_expectArrayOf5Ones" />
       <item itemvalue="Gradle.GameEngineTest.getCurrentPlayerHandStrengthTest" />
+      <item itemvalue="Gradle.GameEngineTest.saveDataToFileTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.GameEngineTest.saveDataToFileTest" />
         <item itemvalue="Gradle.GameEngineTest.getCurrentPlayerHandStrengthTest" />
         <item itemvalue="Gradle.GameEngineTest.rollCurrentPlayerTest_expectArrayOf5Ones" />
         <item itemvalue="Gradle.GameEngineTest.getPlayerTest" />
         <item itemvalue="Gradle.GameEngineTest.currentPlayerAnteFalseTest" />
-        <item itemvalue="Gradle.GameEngineTest.currentPlayerAnteTest" />
       </list>
     </recent_temporary>
   </component>
