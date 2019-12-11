@@ -16,6 +16,7 @@ import javafx.scene.paint.Color;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 
 public class GameController {
@@ -745,8 +746,9 @@ public class GameController {
     }
 
     public void loadGame() {
+        File saveFile = new File("Detta Funkar inte på riktigt");
         try {
-            mainGame.loadDataFromFile("SaveFile");
+            mainGame.loadDataFromFile(saveFile);
         }
         catch (IOException ioe) {
             ioe.printStackTrace();

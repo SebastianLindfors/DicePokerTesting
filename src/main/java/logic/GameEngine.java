@@ -519,6 +519,7 @@ public class GameEngine {
 
         PrintWriter outStream = new PrintWriter(fileName);
         outStream.println(saveString);
+        outStream.close();
 
     }
 
@@ -539,13 +540,9 @@ public class GameEngine {
 
     }
 
-    public String loadDataFromFile(String fileName) throws IOException {
+    public String loadDataFromFile(File fileName) throws IOException {
 
-        String filePath = "C:\\Users\\sebas\\Documents\\GitHub Projects\\OOP1-P2\\SaveGames\\";
-
-        String fullFile = filePath + fileName + ".sav";
-
-        BufferedReader inputReader = new BufferedReader(new FileReader(fullFile));
+        BufferedReader inputReader = new BufferedReader(new FileReader(fileName));
 
         String line;
         StringBuilder outputBuilder = new StringBuilder();

@@ -3,17 +3,28 @@ package logic;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.io.TempDir;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 public class GameEngineTest {
+
+    @Mock RealPlayer testPlayer;
+    @Mock RealPlayer testPlayer1;
+
 
     @Test
     public void determineHandStrengthPairTest() {
@@ -208,10 +219,14 @@ public class GameEngineTest {
     public void getPlayerTest_expect2(){
 
         List<Player> listOfPlayers = new ArrayList<>();
-        listOfPlayers.add(new RealPlayer("a", 15, true));
-        listOfPlayers.add(new RealPlayer("b", 20, true));
-        listOfPlayers.add(new RealPlayer("c", 15, true));
-        listOfPlayers.add(new RealPlayer("d", 31, true));
+
+        MockitoAnnotations.initMocks(this);
+
+        when(testPlayer1.getName()).thenReturn("b");
+
+        listOfPlayers.add(testPlayer);
+        listOfPlayers.add(testPlayer1);
+
 
         GameEngine testEngine = new GameEngine(listOfPlayers);
 
@@ -779,8 +794,11 @@ public class GameEngineTest {
 
     }
 
+
     @Test
-    public void saveDataToFileTest(@TempDir File tempFile) throws IOException {
+    public void saveDataToFileTest(@TempDir Path tempPath) throws IOException {
+
+        File tempFile = new File(tempPath + "TestSave.tmp");
 
         List<Player> listOfPlayers = new ArrayList<>();
         listOfPlayers.add(new FakePlayer());
@@ -793,8 +811,24 @@ public class GameEngineTest {
 
 
 
+    }
 
+    @Test
+    public void loadDataFromFileTest(@TempDir Path tempPath) throws IOException{
 
+        String outString  = "TestString";
+        File testFile = new File(tempPath + "TestSave.sav");
+        PrintWriter outputWriter = new PrintWriter(testFile);
+        outputWriter.println(outString);
+        outputWriter.close();
+
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+
+        String actual = testEngine.loadDataFromFile(new File(tempPath + "TestSave.sav"));
+
+        Assertions.assertEquals(outString, actual);
 
     }
 
