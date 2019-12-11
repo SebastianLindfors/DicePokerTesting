@@ -3,7 +3,12 @@ package logic;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +26,16 @@ public class GameEngineTest {
     }
 
     @Test
+    public void determineHandStrengthPairTest_2() {
+
+        int[] inputHand = {4, 1, 5, 4, 6};
+        int[] expected = {1, 4, 6, 5, 1};
+        int[] actual = GameEngine.determineHandStrength(inputHand);
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
     public void determineHandStrengthTest2Pair() {
 
         int [] inputHand = new int[]{5, 5, 4, 4, 6};
@@ -31,7 +46,7 @@ public class GameEngineTest {
     }
 
     @Test
-    public void determineHandStrengthTest2ofKind() {
+    public void determineHandStrengthTest3ofKind() {
 
         int [] inputHand = new int[]{1, 1, 1, 3, 2};
         int [] expected = new int[]{3, 1, 3, 2, 0};
@@ -683,6 +698,105 @@ public class GameEngineTest {
 
     }
 
+    @Test
+    public void getCurrentPlayerHandStrengthTest() {
+
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        int [] expected = {7, 6, 0, 0, 0};
+
+        Assertions.assertArrayEquals(expected, testEngine.getCurrentPlayerHandStrength());
+
+    }
+
+    @Test
+    public void rerollCurrentPlayerTest(){
+
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+
+        testEngine.rerollCurrentPlayer(new boolean[] {true, true, true, true, true});
+
+        int [] expected = {1,1,1,1,1};
+
+        FakePlayer testPlayer = (FakePlayer) listOfPlayers.get(0);
+
+        Assertions.assertArrayEquals(expected, testPlayer.getRerollSpy());
+
+    }
+
+
+    @Test
+    public void rerollCurrentPlayerTest2(){
+
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+
+        testEngine.rerollCurrentPlayer(new boolean[] {false, false, false, false, false});
+
+        int [] expected = {0,0,0,0,0};
+
+        FakePlayer testPlayer = (FakePlayer) listOfPlayers.get(0);
+
+        Assertions.assertArrayEquals(expected, testPlayer.getRerollSpy());
+
+    }
+
+    @Test
+    public void rerollCurrentPlayerTest3(){
+
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+
+        testEngine.rerollCurrentPlayer(new boolean[] {true, false, true, false, true});
+
+        int [] expected = {1,0,1,0,1};
+
+        FakePlayer testPlayer = (FakePlayer) listOfPlayers.get(0);
+
+        Assertions.assertArrayEquals(expected, testPlayer.getRerollSpy());
+
+    }
+
+    @Test
+    public void getListOfAllPlayersTest(){
+
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        List<Player> expected = listOfPlayers;
+
+        Assertions.assertEquals(expected, testEngine.getListOfAllPlayers());
+
+    }
+
+    @Test
+    public void saveDataToFileTest(@TempDir File tempFile) throws IOException {
+
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+        String saveString = "Test";
+        testEngine.saveDataToFile(saveString, tempFile);
+
+        Assertions.assertLinesMatch(List.of(saveString), Files.readAllLines(tempFile.toPath()));
+
+
+
+
+
+
+    }
 
 
 

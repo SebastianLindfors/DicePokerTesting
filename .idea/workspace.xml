@@ -23,6 +23,12 @@
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logic/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/GameEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/logic/GameEngineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/logic/GameEngineTest.java" afterDir="false" />
+>>>>>>> ae498b789c81935d455043c48a7c6ff3344efcf8
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +110,23 @@
       <recent name="logic" />
     </key>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Gradle.RealPlayerTest.testRollSomeDie5">
+=======
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Gradle.GameEngineTest.saveDataToFileTest">
+>>>>>>> ae498b789c81935d455043c48a7c6ff3344efcf8
     <configuration name="GameEngineTest" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -155,12 +177,20 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+<<<<<<< HEAD
     <configuration name="RealPlayerTest.testGetDieValues" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+=======
+    <configuration name="GameEngineTest.getCurrentPlayerHandStrengthTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+>>>>>>> ae498b789c81935d455043c48a7c6ff3344efcf8
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
+<<<<<<< HEAD
         <option name="scriptParameters" value="--tests &quot;logic.RealPlayerTest.testGetDieValues&quot;" />
+=======
+        <option name="scriptParameters" value="--tests &quot;logic.GameEngineTest.getCurrentPlayerHandStrengthTest&quot;" />
+>>>>>>> ae498b789c81935d455043c48a7c6ff3344efcf8
         <option name="taskDescriptions">
           <list />
         </option>
@@ -175,12 +205,20 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+<<<<<<< HEAD
     <configuration name="RealPlayerTest.testRollAllDieDie1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+=======
+    <configuration name="GameEngineTest.getPlayerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+>>>>>>> ae498b789c81935d455043c48a7c6ff3344efcf8
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
+<<<<<<< HEAD
         <option name="scriptParameters" value="--tests &quot;logic.RealPlayerTest.testRollAllDieDie1&quot;" />
+=======
+        <option name="scriptParameters" value="--tests &quot;logic.GameEngineTest.getPlayerTest&quot;" />
+>>>>>>> ae498b789c81935d455043c48a7c6ff3344efcf8
         <option name="taskDescriptions">
           <list />
         </option>
@@ -195,12 +233,20 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+<<<<<<< HEAD
     <configuration name="RealPlayerTest.testRollSomeDie5" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+=======
+    <configuration name="GameEngineTest.rollCurrentPlayerTest_expectArrayOf5Ones" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+>>>>>>> ae498b789c81935d455043c48a7c6ff3344efcf8
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
+<<<<<<< HEAD
         <option name="scriptParameters" value="--tests &quot;logic.RealPlayerTest.testRollSomeDie5&quot;" />
+=======
+        <option name="scriptParameters" value="--tests &quot;logic.GameEngineTest.rollCurrentPlayerTest_expectArrayOf5Ones&quot;" />
+>>>>>>> ae498b789c81935d455043c48a7c6ff3344efcf8
         <option name="taskDescriptions">
           <list />
         </option>
@@ -215,12 +261,20 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+<<<<<<< HEAD
     <configuration name="RealPlayerTest.testgetDice" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+=======
+    <configuration name="GameEngineTest.saveDataToFileTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+>>>>>>> ae498b789c81935d455043c48a7c6ff3344efcf8
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
+<<<<<<< HEAD
         <option name="scriptParameters" value="--tests &quot;logic.RealPlayerTest.testgetDice&quot;" />
+=======
+        <option name="scriptParameters" value="--tests &quot;logic.GameEngineTest.saveDataToFileTest&quot;" />
+>>>>>>> ae498b789c81935d455043c48a7c6ff3344efcf8
         <option name="taskDescriptions">
           <list />
         </option>
@@ -237,6 +291,7 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.GameEngineTest" />
+<<<<<<< HEAD
       <item itemvalue="Gradle.RealPlayerTest" />
       <item itemvalue="Gradle.RealPlayerTest.testGetDieValues" />
       <item itemvalue="Gradle.RealPlayerTest.testgetDice" />
@@ -250,6 +305,21 @@
         <item itemvalue="Gradle.RealPlayerTest" />
         <item itemvalue="Gradle.RealPlayerTest.testGetDieValues" />
         <item itemvalue="Gradle.RealPlayerTest.testgetDice" />
+=======
+      <item itemvalue="Gradle.GameEngineTest.currentPlayerAnteFalseTest" />
+      <item itemvalue="Gradle.GameEngineTest.getPlayerTest" />
+      <item itemvalue="Gradle.GameEngineTest.rollCurrentPlayerTest_expectArrayOf5Ones" />
+      <item itemvalue="Gradle.GameEngineTest.getCurrentPlayerHandStrengthTest" />
+      <item itemvalue="Gradle.GameEngineTest.saveDataToFileTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.GameEngineTest.saveDataToFileTest" />
+        <item itemvalue="Gradle.GameEngineTest.getCurrentPlayerHandStrengthTest" />
+        <item itemvalue="Gradle.GameEngineTest.rollCurrentPlayerTest_expectArrayOf5Ones" />
+        <item itemvalue="Gradle.GameEngineTest.getPlayerTest" />
+        <item itemvalue="Gradle.GameEngineTest.currentPlayerAnteFalseTest" />
+>>>>>>> ae498b789c81935d455043c48a7c6ff3344efcf8
       </list>
     </recent_temporary>
   </component>
@@ -322,10 +392,14 @@
     <state x="117" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1575965402338" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+<<<<<<< HEAD
     <SUITE FILE_PATH="coverage/DicePokerTesting$RealPlayerTest_testgetDice.ic" NAME="RealPlayerTest.testgetDice Coverage Results" MODIFIED="1575987120339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/DicePokerTesting$RealPlayerTest_getDieValues.ic" NAME="RealPlayerTest.getDieValues Coverage Results" MODIFIED="1575986835436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/DicePokerTesting$Tests_in__logic_.ic" NAME="Tests in 'logic' Coverage Results" MODIFIED="1576011990327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/DicePokerTesting$GameEngineTest.ic" NAME="GameEngineTest Coverage Results" MODIFIED="1575968228131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+=======
+    <SUITE FILE_PATH="coverage/DicePokerTesting$GameEngineTest.ic" NAME="GameEngineTest Coverage Results" MODIFIED="1576018505976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+>>>>>>> ae498b789c81935d455043c48a7c6ff3344efcf8
       <FILTER>logic.*</FILTER>
       <FILTER>controller.*</FILTER>
     </SUITE>

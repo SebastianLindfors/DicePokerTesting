@@ -14,6 +14,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -363,7 +364,8 @@ public class GameController {
 
     public void save() {
         try {
-            mainGame.saveDataToFile(mainGame.createStorageString(),"SaveFile");
+            File saveFile = new File("SaveGames\\SaveGame.sav");
+            mainGame.saveDataToFile(mainGame.createStorageString(),saveFile);
             System.exit(0);
         }
         catch (IOException ioe) {
