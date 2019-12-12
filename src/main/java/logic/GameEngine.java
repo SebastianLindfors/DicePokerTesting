@@ -394,6 +394,11 @@ public class GameEngine {
 
     public boolean currentPlayerBet(int bet) {
 
+        if (bet < 0) {
+            throw new IllegalArgumentException("Bets must be larger than zero");
+        }
+
+
         if (playerByNumber.get(roundPlayerOrder.get(currentPlayerPointer)).payMarkerToPot(bet)) {
             if (playerBets[getCurrentPlayerNumber() - 1] + bet > playerBets[largestBetPlayerNumber - 1]) {
                 currentPot += bet;

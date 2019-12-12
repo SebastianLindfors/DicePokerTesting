@@ -31,7 +31,9 @@ public class GameEngineTest {
 
         int[] inputHand = {1, 1, 3, 4, 5};
         int[] expected = {1, 1, 5, 4, 3};
+
         int[] actual = GameEngine.determineHandStrength(inputHand);
+
         Assertions.assertArrayEquals(expected, actual);
 
     }
@@ -41,7 +43,9 @@ public class GameEngineTest {
 
         int[] inputHand = {4, 1, 5, 4, 6};
         int[] expected = {1, 4, 6, 5, 1};
+
         int[] actual = GameEngine.determineHandStrength(inputHand);
+
         Assertions.assertArrayEquals(expected, actual);
 
     }
@@ -51,7 +55,9 @@ public class GameEngineTest {
 
         int [] inputHand = new int[]{5, 5, 4, 4, 6};
         int [] expected = new int[]{2, 5, 4, 6, 0};
+
         int [] actual = GameEngine.determineHandStrength(inputHand);
+
         Assertions.assertArrayEquals(expected, actual);
 
     }
@@ -61,7 +67,9 @@ public class GameEngineTest {
 
         int [] inputHand = new int[]{1, 1, 1, 3, 2};
         int [] expected = new int[]{3, 1, 3, 2, 0};
+
         int [] actual = GameEngine.determineHandStrength(inputHand);
+
         Assertions.assertArrayEquals(expected, actual);
 
     }
@@ -71,7 +79,9 @@ public class GameEngineTest {
 
         int [] inputHand = new int[]{1, 2, 3, 4, 5};
         int [] expected = new int[]{4, 5, 0, 0, 0};
+
         int [] actual = GameEngine.determineHandStrength(inputHand);
+
         Assertions.assertArrayEquals(expected, actual);
 
     }
@@ -81,7 +91,9 @@ public class GameEngineTest {
 
         int [] inputHand = new int[]{2, 2, 2, 5, 5};
         int [] expected = new int[]{5, 2, 5, 0, 0};
+
         int [] actual = GameEngine.determineHandStrength(inputHand);
+
         Assertions.assertArrayEquals(expected, actual);
 
     }
@@ -91,7 +103,9 @@ public class GameEngineTest {
 
         int [] inputHand = new int[]{6, 6, 6, 6, 1};
         int [] expected = new int[]{6, 6, 1, 0, 0};
+
         int [] actual = GameEngine.determineHandStrength(inputHand);
+
         Assertions.assertArrayEquals(expected, actual);
 
     }
@@ -101,7 +115,9 @@ public class GameEngineTest {
 
         int [] inputHand = new int[]{1, 1, 1, 1, 1};
         int [] expected = new int[]{7, 1, 0, 0, 0};
+
         int [] actual = GameEngine.determineHandStrength(inputHand);
+
         Assertions.assertArrayEquals(expected, actual);
 
     }
@@ -111,38 +127,46 @@ public class GameEngineTest {
 
         int [] inputHand = new int[]{1, 2, 3, 5, 6};
         int [] expected = new int[]{0, 4, 0, 0, 0};
+
         int [] actual = GameEngine.determineHandStrength(inputHand);
+
         Assertions.assertArrayEquals(expected, actual);
 
     }
 
 
     @Test
-    public void compareHandStrengthTestExpectTrue() {
+    public void compareHandStrengthTest_PlayerOneStrongerExpectTrue() {
 
         int[] hand1 = {7, 6, 0, 0, 0};
         int[] hand2 = {0, 3, 0, 0, 0};
-        Boolean result = GameEngine.compareHandStrength(hand1, hand2);
+
+        boolean result = GameEngine.compareHandStrength(hand1, hand2);
+
         Assertions.assertTrue(result);
 
     }
 
     @Test
-    public void compareHandStrengthTestExpectFalse() {
+    public void compareHandStrengthTest_PlayerTwoStronger_ExpectFalse() {
 
         int[] hand2 = {7, 6, 0, 0, 0};
         int[] hand1 = {0, 3, 0, 0, 0};
-        Boolean result = GameEngine.compareHandStrength(hand1, hand2);
+
+        boolean result = GameEngine.compareHandStrength(hand1, hand2);
+
         Assertions.assertFalse(result);
 
     }
 
     @Test
-    public void compareHandStrengthTestTieExpectFalse(){
+    public void compareHandStrengthTest_Tie_ExpectFalse(){
 
         int[] hand1 = {7,6,0,0,0};
         int[] hand2= {7,6,0,0,0};
+
         Boolean result = GameEngine.compareHandStrength(hand1,hand2);
+
         Assertions.assertFalse(result);
 
     }
@@ -158,6 +182,7 @@ public class GameEngineTest {
         int[][] testHand = {hand1,hand2,hand3,hand4};
         int[][] expectedHand = {hand4, hand3,hand2, hand1};
         int[][] sortedHand = GameEngine.sortHandStrength(testHand);
+
         Assertions.assertArrayEquals(expectedHand, sortedHand);
     }
 
@@ -172,6 +197,7 @@ public class GameEngineTest {
         int[][] testHand = {hand1,hand2,hand3,hand4};
         int[][] expectedHand = {hand4, hand2,hand3, hand1};
         int[][] sortedHand = GameEngine.sortHandStrength(testHand);
+
         Assertions.assertArrayEquals(expectedHand, sortedHand);
     }
 
@@ -471,6 +497,20 @@ public class GameEngineTest {
         testEngine.nextPlayer();
 
         Assertions.assertFalse(testEngine.currentPlayerBet(5));
+    }
+
+    @Test
+    public void currentPlayerBetTest_IllegalBet_expectsException() {
+        List<Player> listOfPlayers = new ArrayList<>();
+        listOfPlayers.add(new FakePlayer());
+        listOfPlayers.get(0).setMarker(15);
+
+
+        GameEngine testEngine = new GameEngine(listOfPlayers);
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            testEngine.currentPlayerBet(-5);
+        });
     }
 
     @Test
